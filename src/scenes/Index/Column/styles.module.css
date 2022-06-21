@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 1rem;
+  border: solid 2px #B9B9B9;
+  padding: 0.5rem;
+  margin: 1rem;
+  align-items: center;
+}
+
+.title {
+  text-decoration: underline;
+}
