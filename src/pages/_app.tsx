@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import "../i18n";
 
 import "../modules/styles/themes.css";
 import "../modules/styles/global.css";

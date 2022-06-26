@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import styled from "styled-components";
-import { colors } from "../../../theme";
+import { Trans } from "react-i18next";
 
+import { colors } from "../../../theme";
 import { Job } from "../../../generated/graphql";
 
 import styles from "./styles.module.css";
 import useColumn from "../../../hooks/useColumn";
 
-type Props = { job: Job; isNew: boolean };
+type Props = { job: Job };
 
 const Container = styled.div`
   background-color: ${colors.eggshell};
@@ -42,30 +43,41 @@ const TaskName = styled.span`
 
 const Date = styled.div`
   color: ${colors.darkGrey};
+  margin: 0.25rem 0;
 `;
 
 const Status = styled.div`
-  color: ${colors.darkGrey};
+  color: ${({ color }) => color};
+  display: flex;
+  width: fit-content;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  background-color: ${colors.white};
+  border-radius: 1rem;
+  font-weight: bold;
+`;
+
+const Text = styled.span<{ show: boolean }>`
+  display: ${({ show }) => (show ? "block" : "none")};
 `;
 
 const AnimatedBloc = styled.div<{ show: boolean }>`
   position: absolute;
-  left: 0;
+  display: flex;
+  right: 0;
   top: 0;
   width: ${({ show }) => (show ? "100%" : "0%")};
   height: 100%;
+  align-items: center;
+  justify-content: center;
   background: ${({ color }) => color};
-  transform: rotate(180deg);
   transition: all 0.75s ease;
+  font-weight: bold;
 `;
 
-export function Card({ job, isNew }: Props) {
+export function Card({ job }: Props) {
   const column = useColumn(job.status);
   const [show, setShow] = useState(true);
-
-  if (isNew) {
-    console.log("updated", job.name);
-  }
 
   useEffect(() => {
     setTimeout(() => setShow(false), 1000);
@@ -73,7 +85,11 @@ export function Card({ job, isNew }: Props) {
 
   return (
     <Container color={column.color}>
-      <AnimatedBloc show={show} color={column.color} />
+      <AnimatedBloc show={show} color={column.color}>
+        <Text show={show} color="white">
+          <Trans i18nKey={job.status} />
+        </Text>
+      </AnimatedBloc>
       <NameContainer>
         <DotStatus color={column.color} />
         <TaskName>{job.name}</TaskName>
@@ -84,7 +100,9 @@ export function Card({ job, isNew }: Props) {
           timeStyle: "short",
         }).format(DateTime.fromISO(job.createdAt).toJSDate())}
       </Date>
-      <Status>{job.status}</Status>
+      <Status color={column.color}>
+        <Trans i18nKey={job.status} />
+      </Status>
     </Container>
   );
 }

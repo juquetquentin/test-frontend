@@ -14,11 +14,13 @@
   "dependencies": {
     "@apollo/client": "^3.6.6",
     "graphql": ">=15 <16",
+    "i18next": "^21.8.10",
     "luxon": "^2.4.0",
     "next": "^12.1.6",
     "pino": "^8.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-i18next": "^11.17.2",
     "react-is": ">= 16.8.0",
     "styled-components": "^5.3.5"
   },

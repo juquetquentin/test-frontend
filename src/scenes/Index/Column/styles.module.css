@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 0;
   border-radius: 1rem;
   border: solid 2px #B9B9B9;
   padding: 0.5rem;
@@ -11,4 +11,13 @@
 
 .title {
   text-decoration: underline;
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(200px);
+  }
 }
