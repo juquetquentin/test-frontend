@@ -12,7 +12,7 @@ import useColumn from "../../../hooks/useColumn";
 type Props = { job: Job };
 
 const Container = styled.div`
-  background-color: ${colors.eggshell};
+  background-color: ${colors.white};
   border-radius: 0.5rem;
   border: ${({ color }) => `solid 2px ${color}`};
   margin: 0.5rem;
@@ -47,12 +47,12 @@ const Date = styled.div`
 `;
 
 const Status = styled.div`
-  color: ${({ color }) => color};
+  color: ${colors.white};
   display: flex;
   width: fit-content;
   text-transform: uppercase;
   padding: 0.25rem 0.5rem;
-  background-color: ${colors.white};
+  background-color: ${({ color }) => color};
   border-radius: 1rem;
   font-weight: bold;
 `;

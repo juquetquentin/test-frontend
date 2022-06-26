@@ -10,6 +10,10 @@ type Props = { children?: ReactNode; name: string };
 const Title = styled.span`
   color: ${({ color }) => color};
   font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border: ${({ color }) => `solid 2px ${color}`};
+  border-radius: 0.5rem;
 `;
 
 export function Column({ children, name }: Props) {

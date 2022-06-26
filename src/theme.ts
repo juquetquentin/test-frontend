@@ -5,6 +5,7 @@ export const colors = {
   black: "#000000",
   eggshell: "#f0ead6",
   darkGrey: "#565656",
+  smokedWhite: "#e8e8e8",
 };
 
 export const columnColors = [

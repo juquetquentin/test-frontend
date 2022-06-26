@@ -9,10 +9,6 @@
   align-items: center;
 }
 
-.title {
-  text-decoration: underline;
-}
-
 @keyframes slideout {
   from {
     transform: translateX(0px);

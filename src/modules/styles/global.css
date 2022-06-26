@@ -16,7 +16,7 @@
 html,
 body {
   height: 100%;
-  background-color: #EEEEEE;
+  background-color: black;
 }
 
 body {
@@ -57,6 +57,6 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-  background-color: #EEEEEE;
+  background-color: black;
   height: 100%;
 }
